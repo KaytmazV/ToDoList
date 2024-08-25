@@ -1,0 +1,257 @@
+:root {
+    --main-color: rgba(52, 172, 224, 1.0);
+    --main-color-light: rgba(39, 174, 96, 1.0);
+    --accent-color: rgba(126, 255, 245, 1.0);
+    --accent-color-light: rgba(126, 255, 245, 1.0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; 
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2c3e50;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.main-title{
+    font-size: 7rem;
+    color: rgb(168, 39, 39);
+    font-family: 'Poppins', sans-serif; 
+    text-transform: uppercase;
+    background: linear-gradient(90deg, rgb(6, 22, 29), rgb(177, 30, 30));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 22px 22px 5px rgba(0, 0, 0, 0.3); 
+    animation: titleAnimation 2s ease-in-out;
+}
+
+@keyframes titleAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-50px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header, .gorev-form {
+    min-height: 20vh;
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gorev-tamamlandi {
+    text-decoration: line-through;
+    opacity: 0.6;
+    color: #888;
+    background-color: #e0e0e0; /* Tamamlanan görevlerin arka plan rengini değiştir */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-item {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border: none;
+    background-color: white;
+    outline: none;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-label {
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    font-size: 2rem;
+    color: #0d55b3;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.input-gorev:focus + .form-label,
+.input-gorev:not(:placeholder-shown) + .form-label {
+    top: -1rem;
+    left: 0.5rem;
+    font-size: 1rem;
+    color: #440b0f;
+}
+
+@keyframes rotateIcon {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scaleIcon {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.btn-gorev-ekle i {
+    animation: rotateIcon 1.5s ease-in-out infinite, scaleIcon 1.5s ease-in-out infinite;
+    display: inline-block;
+    color: var(--main-color);
+}
+
+.btn-gorev-ekle:hover {
+    color: white;
+    background-color: rgba(61, 61, 61, 1.0);
+}
+
+.gorev-conteiner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 20vh - 20vh); 
+    overflow-y: auto; 
+}
+
+.gorev-listesi {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gorev-item {
+    display: flex;
+    width: 450px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+  
+    font-size: 1.2rem;
+    background-color: white;
+    border-radius: 8px; 
+    transition: 1s ease-in-out;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.gorev-tanim {
+    flex: 1;
+    padding: 0.4rem;
+}
+
+.gorev-btn {
+    background-color: rgb(10, 53, 146);
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.6rem;
+}
+
+.gorev-btn-sil {
+    background-color: rgb(255, 46, 46);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-tumunu-sil {
+    background-color: rgb(223, 115, 115);
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+}
+
+.label-dark {
+    width: 100px;
+    height: 50px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ebebeb;
+    border-radius: 25px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.label-dark:after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 50%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.darkmode-toggle {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.darkmode-toggle:checked + label {
+    background: #242424;
+}
+
+.darkmode-toggle:checked + label::after {
+    left: auto;
+    right: 10px;
+    transform: translateX(0);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    background: #74c3f1;
+    z-index: -1;
+    position: absolute;
+    transition: 0.3s;
+}
+
+.darkmode-toggle:checked + label + .background {
+    background: #194bc9cc;
+}
